@@ -1,0 +1,17 @@
+FROM develar/java
+MAINTAINER Oleg Fedoseev <oleg.fedoseev@me.com>
+
+ADD opentsdb/etc/opentsdb/ /etc/opentsdb
+ADD opentsdb/usr/share/opentsdb /usr/share/opentsdb
+ADD opentsdb.conf.tpl /etc/opentsdb/opentsdb.conf.tpl
+ADD entrypoint.sh /entrypoint.sh
+
+RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
+	apk add --update gnuplot && \
+	rm -rf /tmp/* /var/cache/apk/*
+
+RUN ln -s /usr/share/opentsdb/bin/tsdb /usr/bin/tsdb && sed -i 's/bash/sh/' /usr/bin/tsdb
+
+ENTRYPOINT ["/entrypoint.sh"]
+EXPOSE 4242
+CMD ["tsd"]
