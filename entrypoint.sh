@@ -1,21 +1,10 @@
 #!/bin/sh
 set -e
 
-if [ -z "$TIMEZONE" ]; then
-	export TIMEZONE=UTC
-fi
-
-if [ -z "$COMPACTION" ]; then
-	export COMPACTION=True
-fi
-
-if [ -z "$FLUSH_INTERVAL" ]; then
-	export FLUSH_INTERVAL=1000
-fi
-
-if [ -z "$ZK_QUORUM" ]; then
-	export ZK_QUORUM=localhost
-fi
+export TIMEZONE=${TIMEZONE:-UTC}
+export COMPACTION=${COMPACTION:-True}
+export FLUSH_INTERVAL=${FLUSH_INTERVAL:-1000}
+export ZK_QUORUM=${ZK_QUORUM:-localhost}
 
 cp /etc/opentsdb/opentsdb.conf.tpl /etc/opentsdb/opentsdb.conf
 sed -i "s#\$TIMEZONE#$TIMEZONE#" /etc/opentsdb/opentsdb.conf

@@ -1,5 +1,5 @@
-VERSION=2.1.1
-URL=https://github.com/OpenTSDB/opentsdb/releases/download/2.1.1/opentsdb-2.1.1_all.deb
+VERSION=2.2.0RC3
+URL=https://github.com/OpenTSDB/opentsdb/releases/download/v2.2.0RC3/opentsdb-2.2.0RC3_all.deb
 IMAGE=olegfedoseev/opentsdb
 
 .DEFAULT_GOAL: all
@@ -8,14 +8,14 @@ all: download build
 
 build:
 	docker build --rm -t ${IMAGE} .
+	docker build --rm -t ${IMAGE}:${VERSION} .
 
 download: clean
-	curl -skL ${URL} -o opentsdb-2.1.1_all.deb
-	ar -x opentsdb-2.1.1_all.deb
-	mkdir ./opentsdb && tar -xvf data.tar.xz -C ./opentsdb
-	rm control.tar.gz data.tar.xz debian-binary opentsdb-2.1.1_all.deb
+	curl -skL ${URL} -o opentsdb-${VERSION}_all.deb
+	mkdir ./opentsdb && ar -x opentsdb-${VERSION}_all.deb data.tar.xz && tar zx -xvf data.tar.xz -C ./opentsdb
+	rm data.tar.xz opentsdb-${VERSION}_all.deb
 
 clean:
-	rn -rf ./opentsdb
+	rm -rf ./opentsdb
 
 .PHONY: build download
