@@ -12,7 +12,7 @@ build:
 
 download: clean
 	curl -skL ${URL} -o opentsdb-${VERSION}_all.deb
-	mkdir ./opentsdb && ar -x opentsdb-${VERSION}_all.deb data.tar.xz && tar zx -xvf data.tar.xz -C ./opentsdb
+	mkdir ./opentsdb && ar -x opentsdb-${VERSION}_all.deb data.tar.xz && tar -xvf data.tar.xz -C ./opentsdb
 	rm data.tar.xz opentsdb-${VERSION}_all.deb
 
 clean:
