@@ -10,6 +10,9 @@ build:
 	docker build --rm -t ${IMAGE} .
 	docker build --rm -t ${IMAGE}:${VERSION} .
 
+push:
+	docker push ${IMAGE}:${VERSION}
+
 download: clean
 	curl -skL ${URL} -o opentsdb-${VERSION}_all.deb
 	mkdir ./opentsdb && ar -x opentsdb-${VERSION}_all.deb data.tar.xz && tar -xvf data.tar.xz -C ./opentsdb

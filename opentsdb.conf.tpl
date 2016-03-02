@@ -10,6 +10,7 @@ tsd.http.staticroot = /usr/share/opentsdb/static/
 tsd.http.cachedir = /tmp/opentsdb
 tsd.http.request.enable_chunked = true
 tsd.http.request.max_chunk = 409600
+tsd.http.request.cors_domains = *
 
 # --------- CORE ----------
 tsd.core.timezone = $TIMEZONE

@@ -12,6 +12,7 @@ ADD entrypoint.sh /tsdb
 
 RUN ln -s /usr/share/opentsdb/bin/tsdb /usr/bin/tsdb && sed -i 's/bash/sh/' /usr/bin/tsdb
 
+VOLUME ["/tmp/opentsdb"]
 ENTRYPOINT ["/tsdb"]
 EXPOSE 4242
 CMD ["tsd"]
