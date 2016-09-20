@@ -1,5 +1,5 @@
-VERSION=2.2.0RC3
-URL=https://github.com/OpenTSDB/opentsdb/releases/download/v2.2.0RC3/opentsdb-2.2.0RC3_all.deb
+VERSION=2.2.0
+URL=https://github.com/OpenTSDB/opentsdb/releases/download/v2.2.0/opentsdb-2.2.0_all.deb
 IMAGE=olegfedoseev/opentsdb
 
 .DEFAULT_GOAL: all
