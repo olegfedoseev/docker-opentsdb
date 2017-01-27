@@ -1,5 +1,5 @@
-VERSION=2.2.0
-URL=https://github.com/OpenTSDB/opentsdb/releases/download/v2.2.0/opentsdb-2.2.0_all.deb
+VERSION=2.3.0
+URL=https://github.com/OpenTSDB/opentsdb/releases/download/v2.3.0/opentsdb-2.3.0_all.deb
 IMAGE=olegfedoseev/opentsdb
 
 .DEFAULT_GOAL: all
@@ -16,7 +16,7 @@ push:
 download: clean
 	curl -skL ${URL} -o opentsdb-${VERSION}_all.deb
 	mkdir ./opentsdb && ar -x opentsdb-${VERSION}_all.deb data.tar.xz && tar -xvf data.tar.xz -C ./opentsdb
-	rm data.tar.xz opentsdb-${VERSION}_all.deb
+	rm data.tar.xz opentsdb-${VERSION}_all.deb ./opentsdb/etc/init.d
 
 clean:
 	rm -rf ./opentsdb

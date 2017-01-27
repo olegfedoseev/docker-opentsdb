@@ -13,7 +13,7 @@ tsd.http.request.max_chunk = 409600
 tsd.http.request.cors_domains = *
 
 # --------- CORE ----------
-tsd.core.timezone = $TIMEZONE
+tsd.core.timezone = {{TIMEZONE}}
 # Whether or not to automatically create UIDs for new metric types, default
 # is False
 tsd.core.auto_create_metrics = true
@@ -22,9 +22,9 @@ tsd.core.plugin_path = /usr/share/opentsdb/plugins
 
 # --------- STORAGE ----------
 # Whether or not to enable data compaction in HBase, default is True
-tsd.storage.enable_compaction 	= $COMPACTION
-tsd.storage.flush_interval 		= $FLUSH_INTERVAL
-tsd.storage.hbase.zk_quorum 	= $ZK_QUORUM
+tsd.storage.enable_compaction 	= {{COMPACTION}}
+tsd.storage.flush_interval 		= {{FLUSH_INTERVAL}}
+tsd.storage.hbase.zk_quorum 	= {{ZK_QUORUM}}
 
 tsd.storage.hbase.data_table 	= tsdb
 tsd.storage.hbase.uid_table 	= tsdb-uid
