@@ -1,7 +1,7 @@
 FROM develar/java:8u45
 MAINTAINER Oleg Fedoseev <oleg.fedoseev@me.com>
 
-RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/v3.5/community" >> /etc/apk/repositories && \
 	apk add --update gnuplot tzdata && \
 	rm -rf /tmp/* /var/cache/apk/*
 

@@ -26,7 +26,9 @@ tsd.storage.enable_compaction 	= {{COMPACTION}}
 tsd.storage.flush_interval 		= {{FLUSH_INTERVAL}}
 tsd.storage.hbase.zk_quorum 	= {{ZK_QUORUM}}
 
-tsd.storage.hbase.data_table 	= tsdb
-tsd.storage.hbase.uid_table 	= tsdb-uid
+tsd.storage.hbase.data_table 	= {{DATA_TABLE}}
+tsd.storage.hbase.uid_table 	= {{UID_TABLE}}
+tsd.storage.hbase.meta_table	= {{META_TABLE}}
+tsd.storage.hbase.tree_table 	= {{TREE_TABLE}}
 tsd.storage.hbase.zk_basedir 	= /hbase
 tsd.storage.fix_duplicates 		= true
